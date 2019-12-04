@@ -4,3 +4,6 @@ spring:
     username: hlh
     password: "ygtwaz"
     driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.example.demo.entity

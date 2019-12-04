@@ -1,5 +1,8 @@
-package com.example.ps;
+package com.example;
 
+import com.example.demo.entity.*;
+import com.example.demo.mapper.*;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +14,7 @@ import java.util.*;
 
 @RestController
 @SpringBootApplication
+@MapperScan("com.example.demo.mapper")
 public class PsApplication {
 
     public static void main(String[] args) {
@@ -46,5 +50,30 @@ public class PsApplication {
             }
         }
         return list;
+    }
+
+    @Autowired
+    public UserMapper ump ;
+
+    @RequestMapping("/test")
+    public List<User> findUser(User u)  //find by id and/or nickname
+    {
+
+
+        UserExample ue=new UserExample();
+        UserExample.Criteria criteria=ue.createCriteria();
+
+        System.out.println(u.getuId()+"    "+u.getuNickname());
+
+        if(u!=null)
+        {
+            if(u.getuId()!=null)
+            criteria.andUIdEqualTo(u.getuId());
+            if(u.getuNickname()!=null)
+            criteria.andUNicknameEqualTo(u.getuNickname());
+        }
+
+
+        return ump.selectByExample(ue);
     }
 }

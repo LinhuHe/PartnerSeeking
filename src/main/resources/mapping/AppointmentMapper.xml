@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.AppointmentMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Appointment" >
+    <id column="A_ID" property="aId" jdbcType="INTEGER" />
+    <result column="A_InviterID" property="aInviterid" jdbcType="VARCHAR" />
+    <result column="A_InvitedID" property="aInvitedid" jdbcType="VARCHAR" />
+    <result column="A_PID" property="aPid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    A_ID, A_InviterID, A_InvitedID, A_PID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.AppointmentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from appointment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from appointment
+    where A_ID = #{aId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from appointment
+    where A_ID = #{aId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.AppointmentExample" >
+    delete from appointment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Appointment" >
+    <selectKey resultType="java.lang.Integer" keyProperty="aId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into appointment (A_InviterID, A_InvitedID, A_PID
+      )
+    values (#{aInviterid,jdbcType=VARCHAR}, #{aInvitedid,jdbcType=VARCHAR}, #{aPid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Appointment" >
+    <selectKey resultType="java.lang.Integer" keyProperty="aId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into appointment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="aInviterid != null" >
+        A_InviterID,
+      </if>
+      <if test="aInvitedid != null" >
+        A_InvitedID,
+      </if>
+      <if test="aPid != null" >
+        A_PID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="aInviterid != null" >
+        #{aInviterid,jdbcType=VARCHAR},
+      </if>
+      <if test="aInvitedid != null" >
+        #{aInvitedid,jdbcType=VARCHAR},
+      </if>
+      <if test="aPid != null" >
+        #{aPid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.AppointmentExample" resultType="java.lang.Integer" >
+    select count(*) from appointment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update appointment
+    <set >
+      <if test="record.aId != null" >
+        A_ID = #{record.aId,jdbcType=INTEGER},
+      </if>
+      <if test="record.aInviterid != null" >
+        A_InviterID = #{record.aInviterid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aInvitedid != null" >
+        A_InvitedID = #{record.aInvitedid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aPid != null" >
+        A_PID = #{record.aPid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update appointment
+    set A_ID = #{record.aId,jdbcType=INTEGER},
+      A_InviterID = #{record.aInviterid,jdbcType=VARCHAR},
+      A_InvitedID = #{record.aInvitedid,jdbcType=VARCHAR},
+      A_PID = #{record.aPid,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Appointment" >
+    update appointment
+    <set >
+      <if test="aInviterid != null" >
+        A_InviterID = #{aInviterid,jdbcType=VARCHAR},
+      </if>
+      <if test="aInvitedid != null" >
+        A_InvitedID = #{aInvitedid,jdbcType=VARCHAR},
+      </if>
+      <if test="aPid != null" >
+        A_PID = #{aPid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where A_ID = #{aId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Appointment" >
+    update appointment
+    set A_InviterID = #{aInviterid,jdbcType=VARCHAR},
+      A_InvitedID = #{aInvitedid,jdbcType=VARCHAR},
+      A_PID = #{aPid,jdbcType=INTEGER}
+    where A_ID = #{aId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.PostMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Post" >
+    <id column="P_ID" property="pId" jdbcType="INTEGER" />
+    <result column="P_Tittle" property="pTittle" jdbcType="VARCHAR" />
+    <result column="P_KeyWord" property="pKeyword" jdbcType="VARCHAR" />
+    <result column="P_Content" property="pContent" jdbcType="VARCHAR" />
+    <result column="P_Num" property="pNum" jdbcType="INTEGER" />
+    <result column="P_UID" property="pUid" jdbcType="VARCHAR" />
+    <result column="P_PostTime" property="pPosttime" jdbcType="TIMESTAMP" />
+    <result column="P_EndTime" property="pEndtime" jdbcType="TIMESTAMP" />
+    <result column="P_CollectNum" property="pCollectnum" jdbcType="INTEGER" />
+    <result column="P_Ban" property="pBan" jdbcType="TINYINT" />
+    <result column="P_Pro" property="pPro" jdbcType="TINYINT" />
+    <result column="P_Exi" property="pExi" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    P_ID, P_Tittle, P_KeyWord, P_Content, P_Num, P_UID, P_PostTime, P_EndTime, P_CollectNum, 
+    P_Ban, P_Pro, P_Exi
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.PostExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from post
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from post
+    where P_ID = #{pId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from post
+    where P_ID = #{pId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.entity.PostExample" >
+    delete from post
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Post" >
+    <selectKey resultType="java.lang.Integer" keyProperty="pId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into post (P_Tittle, P_KeyWord, P_Content, 
+      P_Num, P_UID, P_PostTime, 
+      P_EndTime, P_CollectNum, P_Ban, 
+      P_Pro, P_Exi)
+    values (#{pTittle,jdbcType=VARCHAR}, #{pKeyword,jdbcType=VARCHAR}, #{pContent,jdbcType=VARCHAR}, 
+      #{pNum,jdbcType=INTEGER}, #{pUid,jdbcType=VARCHAR}, #{pPosttime,jdbcType=TIMESTAMP}, 
+      #{pEndtime,jdbcType=TIMESTAMP}, #{pCollectnum,jdbcType=INTEGER}, #{pBan,jdbcType=TINYINT}, 
+      #{pPro,jdbcType=TINYINT}, #{pExi,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Post" >
+    <selectKey resultType="java.lang.Integer" keyProperty="pId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into post
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pTittle != null" >
+        P_Tittle,
+      </if>
+      <if test="pKeyword != null" >
+        P_KeyWord,
+      </if>
+      <if test="pContent != null" >
+        P_Content,
+      </if>
+      <if test="pNum != null" >
+        P_Num,
+      </if>
+      <if test="pUid != null" >
+        P_UID,
+      </if>
+      <if test="pPosttime != null" >
+        P_PostTime,
+      </if>
+      <if test="pEndtime != null" >
+        P_EndTime,
+      </if>
+      <if test="pCollectnum != null" >
+        P_CollectNum,
+      </if>
+      <if test="pBan != null" >
+        P_Ban,
+      </if>
+      <if test="pPro != null" >
+        P_Pro,
+      </if>
+      <if test="pExi != null" >
+        P_Exi,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pTittle != null" >
+        #{pTittle,jdbcType=VARCHAR},
+      </if>
+      <if test="pKeyword != null" >
+        #{pKeyword,jdbcType=VARCHAR},
+      </if>
+      <if test="pContent != null" >
+        #{pContent,jdbcType=VARCHAR},
+      </if>
+      <if test="pNum != null" >
+        #{pNum,jdbcType=INTEGER},
+      </if>
+      <if test="pUid != null" >
+        #{pUid,jdbcType=VARCHAR},
+      </if>
+      <if test="pPosttime != null" >
+        #{pPosttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pEndtime != null" >
+        #{pEndtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pCollectnum != null" >
+        #{pCollectnum,jdbcType=INTEGER},
+      </if>
+      <if test="pBan != null" >
+        #{pBan,jdbcType=TINYINT},
+      </if>
+      <if test="pPro != null" >
+        #{pPro,jdbcType=TINYINT},
+      </if>
+      <if test="pExi != null" >
+        #{pExi,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.entity.PostExample" resultType="java.lang.Integer" >
+    select count(*) from post
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update post
+    <set >
+      <if test="record.pId != null" >
+        P_ID = #{record.pId,jdbcType=INTEGER},
+      </if>
+      <if test="record.pTittle != null" >
+        P_Tittle = #{record.pTittle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pKeyword != null" >
+        P_KeyWord = #{record.pKeyword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pContent != null" >
+        P_Content = #{record.pContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pNum != null" >
+        P_Num = #{record.pNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.pUid != null" >
+        P_UID = #{record.pUid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pPosttime != null" >
+        P_PostTime = #{record.pPosttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.pEndtime != null" >
+        P_EndTime = #{record.pEndtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.pCollectnum != null" >
+        P_CollectNum = #{record.pCollectnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.pBan != null" >
+        P_Ban = #{record.pBan,jdbcType=TINYINT},
+      </if>
+      <if test="record.pPro != null" >
+        P_Pro = #{record.pPro,jdbcType=TINYINT},
+      </if>
+      <if test="record.pExi != null" >
+        P_Exi = #{record.pExi,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update post
+    set P_ID = #{record.pId,jdbcType=INTEGER},
+      P_Tittle = #{record.pTittle,jdbcType=VARCHAR},
+      P_KeyWord = #{record.pKeyword,jdbcType=VARCHAR},
+      P_Content = #{record.pContent,jdbcType=VARCHAR},
+      P_Num = #{record.pNum,jdbcType=INTEGER},
+      P_UID = #{record.pUid,jdbcType=VARCHAR},
+      P_PostTime = #{record.pPosttime,jdbcType=TIMESTAMP},
+      P_EndTime = #{record.pEndtime,jdbcType=TIMESTAMP},
+      P_CollectNum = #{record.pCollectnum,jdbcType=INTEGER},
+      P_Ban = #{record.pBan,jdbcType=TINYINT},
+      P_Pro = #{record.pPro,jdbcType=TINYINT},
+      P_Exi = #{record.pExi,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Post" >
+    update post
+    <set >
+      <if test="pTittle != null" >
+        P_Tittle = #{pTittle,jdbcType=VARCHAR},
+      </if>
+      <if test="pKeyword != null" >
+        P_KeyWord = #{pKeyword,jdbcType=VARCHAR},
+      </if>
+      <if test="pContent != null" >
+        P_Content = #{pContent,jdbcType=VARCHAR},
+      </if>
+      <if test="pNum != null" >
+        P_Num = #{pNum,jdbcType=INTEGER},
+      </if>
+      <if test="pUid != null" >
+        P_UID = #{pUid,jdbcType=VARCHAR},
+      </if>
+      <if test="pPosttime != null" >
+        P_PostTime = #{pPosttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pEndtime != null" >
+        P_EndTime = #{pEndtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pCollectnum != null" >
+        P_CollectNum = #{pCollectnum,jdbcType=INTEGER},
+      </if>
+      <if test="pBan != null" >
+        P_Ban = #{pBan,jdbcType=TINYINT},
+      </if>
+      <if test="pPro != null" >
+        P_Pro = #{pPro,jdbcType=TINYINT},
+      </if>
+      <if test="pExi != null" >
+        P_Exi = #{pExi,jdbcType=TINYINT},
+      </if>
+    </set>
+    where P_ID = #{pId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Post" >
+    update post
+    set P_Tittle = #{pTittle,jdbcType=VARCHAR},
+      P_KeyWord = #{pKeyword,jdbcType=VARCHAR},
+      P_Content = #{pContent,jdbcType=VARCHAR},
+      P_Num = #{pNum,jdbcType=INTEGER},
+      P_UID = #{pUid,jdbcType=VARCHAR},
+      P_PostTime = #{pPosttime,jdbcType=TIMESTAMP},
+      P_EndTime = #{pEndtime,jdbcType=TIMESTAMP},
+      P_CollectNum = #{pCollectnum,jdbcType=INTEGER},
+      P_Ban = #{pBan,jdbcType=TINYINT},
+      P_Pro = #{pPro,jdbcType=TINYINT},
+      P_Exi = #{pExi,jdbcType=TINYINT}
+    where P_ID = #{pId,jdbcType=INTEGER}
+  </update>
+</mapper>

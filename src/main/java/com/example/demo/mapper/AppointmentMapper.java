@@ -3,8 +3,13 @@ package com.example.demo.mapper;
 import com.example.demo.entity.Appointment;
 import com.example.demo.entity.AppointmentExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+@Mapper
 public interface AppointmentMapper {
     int countByExample(AppointmentExample example);
 

@@ -9,6 +9,15 @@ public class Appointment {
 
     private Integer aPid;
 
+    public Appointment(){}
+
+    public Appointment(String aInviterid,String aInvitedid,int aPid)
+    {
+        this.aInviterid = aInviterid;
+        this.aInvitedid = aInvitedid;
+        this.aPid = aPid;
+    }
+
     public Integer getaId() {
         return aId;
     }

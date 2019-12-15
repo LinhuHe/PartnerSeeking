@@ -18,8 +18,14 @@ public class AppointmentService {
     public AppointmentController appointmentController;
 
 
-    public List<Appointment> findPIDByUID(String uid)
+    public List<Appointment> findAllByUID(String uid)
     {
+        if(uid==null)
+        {
+            System.out.println("findPIDByUID:uid is null");
+            return null;
+        }
+
         List<Appointment> temp = new ArrayList<>();
         AppointmentExample ue=new AppointmentExample();
         AppointmentExample.Criteria criteria=ue.createCriteria();
@@ -33,6 +39,48 @@ public class AppointmentService {
         temp.addAll(appointmentMapper.selectByExample(aue));
 
         return temp;
+    }
+
+    public boolean addAppointment(Appointment newap)
+    {
+        if(newap ==null)
+        {
+            System.out.println("addAppointment:newap is null");
+            return false;
+        }
+        else if(newap.getaInviterid()==null)
+        {
+            System.out.println("addAppointment:newap.aInviterid is null");
+            return false;
+        }
+        else if(newap.getaInvitedid()==null)
+        {
+            System.out.println("addAppointment:newap.aInvitedid is null");
+            return false;
+        }
+
+        appointmentMapper.insert(newap);
+        return true;
+    }
+
+    public List<Appointment> findInviterByUID(String uid)
+    {
+        AppointmentExample ae = new AppointmentExample();
+        AppointmentExample.Criteria criteria = ae.createCriteria();
+
+        criteria.andAInviteridEqualTo(uid);
+
+        return appointmentMapper.selectByExample(ae);
+    }
+
+    public List<Appointment> findInvitedByUID(String uid)
+    {
+        AppointmentExample ae = new AppointmentExample();
+        AppointmentExample.Criteria criteria = ae.createCriteria();
+
+        criteria.andAInvitedidEqualTo(uid);
+
+        return appointmentMapper.selectByExample(ae);
     }
 
 

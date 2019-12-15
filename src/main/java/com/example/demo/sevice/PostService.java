@@ -1,4 +1,48 @@
 package com.example.demo.sevice;
 
+
+import com.example.demo.entity.*;
+import com.example.demo.mapper.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
 public class PostService {
+
+    @Autowired
+    public PostMapper postmapper;
+
+    public boolean addPsot(Post p)
+    {
+        if(p==null)
+        {
+            System.out.println("addPsot:p id null");
+            return false;
+        }
+        else if(p.getpTittle()==null)
+        {
+            System.out.println("addPsot:p.tittle is null");
+            return false;
+        }
+        else if(p.getpUid()==null)
+        {
+            System.out.println("addPost:p.UId IS NULL");
+            return false;
+        }
+
+        postmapper.insert(p);
+        return true;
+    }
+
+    public List<Post> findPostByUID(String uid)
+    {
+        PostExample pe = new PostExample();
+        PostExample.Criteria criteria = pe.createCriteria();
+
+        criteria.andPUidEqualTo(uid);
+
+        return postmapper.selectByExample(pe);
+    }
 }

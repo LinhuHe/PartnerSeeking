@@ -11,7 +11,7 @@ public class Post {
 
     private String pContent;
 
-    private Integer pNum;
+    private Integer pNum=0;
 
     private String pUid;
 
@@ -19,13 +19,33 @@ public class Post {
 
     private Date pEndtime;
 
-    private Integer pCollectnum;
+    private Integer pCollectnum=0;
 
-    private Byte pBan;
+    private Byte pBan=0;
 
-    private Byte pPro;
+    private Byte pPro=0;
 
-    private Byte pExi;
+    private Byte pExi=1;
+
+    public Post(){this.pPosttime = new Date();}
+
+    public Post(String pTittle, String pContent, String pUid, Date pEndtime, String pKeyword,  Integer pNum,
+                 Integer pCollectnum, Byte pBan, Byte pPro, Byte pExi)
+    {
+        this.pTittle = pTittle;
+        this.pContent = pContent;
+        this.pUid = pUid;
+        this.pEndtime = pEndtime;
+
+        this.pKeyword = pKeyword;
+        this.pNum = pNum;
+        this.pCollectnum = pCollectnum;
+        this.pBan = pBan;
+        this.pPro = pPro;
+        this.pExi = pExi;
+
+        this.pPosttime = new Date();
+    }
 
     public Integer getpId() {
         return pId;

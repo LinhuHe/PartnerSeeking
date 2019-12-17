@@ -3,11 +3,16 @@ package com.example.demo.entity;
 public class Reply {
     private Integer rId;
 
-    private Integer rUid;
+    private String rUid;
 
     private Integer rPid;
 
+    public Reply(){}
 
+    public Reply(String rUid, Integer rPid) {
+        this.rUid = rUid;
+        this.rPid = rPid;
+    }
 
     public Integer getrId() {
         return rId;
@@ -17,11 +22,11 @@ public class Reply {
         this.rId = rId;
     }
 
-    public Integer getrUid() {
+    public String getrUid() {
         return rUid;
     }
 
-    public void setrUid(Integer rUid) {
+    public void setrUid(String rUid) {
         this.rUid = rUid;
     }
 

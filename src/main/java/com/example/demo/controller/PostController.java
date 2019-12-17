@@ -45,7 +45,7 @@ public class PostController {
     {
         return postService.findPostByEndTimeAsc();
     }
-    @RequestMapping("/post/findPostByEndTimeDesc")
+        @RequestMapping("/post/findPostByEndTimeDesc")
     public List<Post> findPostByEndTimeDesc()
     {
         return postService.findPostByEndTimeDesc();

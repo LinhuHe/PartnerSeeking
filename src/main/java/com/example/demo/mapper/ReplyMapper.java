@@ -1,5 +1,6 @@
 package com.example.demo.mapper;
 
+import com.example.demo.entity.Post;
 import com.example.demo.entity.Reply;
 import com.example.demo.entity.ReplyExample;
 import java.util.List;
@@ -28,5 +29,5 @@ public interface ReplyMapper {
 
     int updateByPrimaryKey(Reply record);
 
-    boolean deleteReplyByPid(int pid);
+    public boolean deleteReplyByPid(int pid);
 }

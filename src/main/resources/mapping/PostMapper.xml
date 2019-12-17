@@ -318,4 +318,19 @@
       P_Exi = #{pExi,jdbcType=TINYINT}
     where P_ID = #{pId,jdbcType=INTEGER}
   </update>
+
+  <select id = "findPostByPostTimeAsc" resultMap="BaseResultMap">
+    select * from Post order by P_PostTime Asc
+  </select>
+  <select id = "findPostByPostTimeDesc" resultMap="BaseResultMap">
+    select * from Post order by P_PostTime Desc
+  </select>
+  <select id = "findPostByEndTimeAsc" resultMap="BaseResultMap">
+    select * from Post order by P_EndTime Asc
+  </select>
+  <select id = "findPostByEndTimeDesc" resultMap="BaseResultMap">
+    select * from Post order by P_EndTime Desc
+  </select>
+
+
 </mapper>

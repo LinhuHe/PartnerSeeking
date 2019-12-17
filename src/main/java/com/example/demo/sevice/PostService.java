@@ -45,4 +45,26 @@ public class PostService {
 
         return postmapper.selectByExample(pe);
     }
+
+    public List<Post> findPostByPostTimeAsc()
+    {
+        return postmapper.findPostByPostTimeAsc();
+    }
+    public List<Post> findPostByPostTimeDesc()
+    {
+        return postmapper.findPostByPostTimeDesc();
+    }
+    public List<Post> findPostByEndTimeAsc()
+    {
+        return postmapper.findPostByEndTimeAsc();
+    }
+    public List<Post> findPostByEndTimeDesc()
+    {
+        return postmapper.findPostByEndTimeDesc();
+    }
+
+    public int deleteByPid(int pid)
+    {
+        return postmapper.deleteByPrimaryKey(pid);
+    }
 }

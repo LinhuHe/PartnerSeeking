@@ -16,6 +16,10 @@ public class AppointmentService {
     public AppointmentMapper appointmentMapper;
     @Autowired
     public AppointmentController appointmentController;
+    @Autowired
+    public ReplyService replyService;
+    @Autowired
+    public PostService postService;
 
 
     public List<Appointment> findAllByUID(String uid)
@@ -59,7 +63,10 @@ public class AppointmentService {
             return false;
         }
 
-        appointmentMapper.insert(newap);
+        replyService.deleteReplyByPid(newap.getaPid()); //删除帖子相关回复
+        postService.deleteByPid(newap.getaPid()); //删除帖子
+
+        appointmentMapper.insert(newap); //
         return true;
     }
 

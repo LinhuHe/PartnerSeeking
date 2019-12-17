@@ -29,4 +29,25 @@ public class PostController {
     {
         return postService.findPostByUID(uid);
     }
+
+    @RequestMapping("/post/findPostByPostTimeAsc")
+    public List<Post> findPostByPostTimeAsc()
+    {
+        return postService.findPostByPostTimeAsc();
+    }
+    @RequestMapping("/post/findPostByPostTimeDesc")
+    public List<Post> findPostByPostTimeDesc()
+    {
+        return postService.findPostByPostTimeDesc();
+    }
+    @RequestMapping("/post/findPostByEndTimeAsc")
+    public List<Post> findPostByEndTimeAsc()
+    {
+        return postService.findPostByEndTimeAsc();
+    }
+    @RequestMapping("/post/findPostByEndTimeDesc")
+    public List<Post> findPostByEndTimeDesc()
+    {
+        return postService.findPostByEndTimeDesc();
+    }
 }

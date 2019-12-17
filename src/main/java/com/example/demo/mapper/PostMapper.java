@@ -27,4 +27,9 @@ public interface PostMapper {
     int updateByPrimaryKeySelective(Post record);
 
     int updateByPrimaryKey(Post record);
+
+    List<Post> findPostByPostTimeAsc();
+    List<Post> findPostByPostTimeDesc();
+    List<Post> findPostByEndTimeAsc();
+    List<Post> findPostByEndTimeDesc();
 }

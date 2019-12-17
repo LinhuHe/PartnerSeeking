@@ -176,4 +176,9 @@
       R_PID = #{rPid,jdbcType=INTEGER}
     where R_ID = #{rId,jdbcType=INTEGER}
   </update>
+
+  <delete id="deleteReplyByPid" parameterType="Integer">
+    delete from reply where R_PID = #{pid,jdbcType = INTEGER}
+  </delete>
+
 </mapper>

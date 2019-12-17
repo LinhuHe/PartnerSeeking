@@ -7,6 +7,8 @@ public class Reply {
 
     private Integer rPid;
 
+
+
     public Integer getrId() {
         return rId;
     }

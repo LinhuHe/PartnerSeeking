@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/reply")
 public class ReplyController {
 
     @Autowired
     public ReplyService replyService;
 
-    @RequestMapping("reply/addReply")
+    @RequestMapping("/addReply")
     public boolean addReply(String uid,int pid)  //uid为应邀者的id
     {
         return replyService.addReply(new Reply(uid,pid));

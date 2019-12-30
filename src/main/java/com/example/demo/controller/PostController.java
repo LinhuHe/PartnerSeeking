@@ -11,12 +11,13 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
+@RequestMapping("/post")
 public class PostController {
 
     @Autowired
     public PostService postService;
 
-    @RequestMapping("/post/addPost")
+    @RequestMapping("/addPost")
     public boolean addPsot(String pTittle, String pContent, String pUid, Date pEndtime, String pKeyword, Integer pNum,
                             Integer pCollectnum, Byte pBan, Byte pPro, Byte pExi)
     {
@@ -24,28 +25,28 @@ public class PostController {
                                              pCollectnum, pBan, pPro, pExi));
     }
 
-    @RequestMapping("/post/findPostByUID/{uid}")
+    @RequestMapping("/findPostByUID/{uid}")
     public List<Post> findPostByUID(@PathVariable("uid") String uid)
     {
         return postService.findPostByUID(uid);
     }
 
-    @RequestMapping("/post/findPostByPostTimeAsc")
+    @RequestMapping("/findPostByPostTimeAsc")
     public List<Post> findPostByPostTimeAsc()
     {
         return postService.findPostByPostTimeAsc();
     }
-    @RequestMapping("/post/findPostByPostTimeDesc")
+    @RequestMapping("/findPostByPostTimeDesc")
     public List<Post> findPostByPostTimeDesc()
     {
         return postService.findPostByPostTimeDesc();
     }
-    @RequestMapping("/post/findPostByEndTimeAsc")
+    @RequestMapping("/findPostByEndTimeAsc")
     public List<Post> findPostByEndTimeAsc()
     {
         return postService.findPostByEndTimeAsc();
     }
-        @RequestMapping("/post/findPostByEndTimeDesc")
+        @RequestMapping("/findPostByEndTimeDesc")
     public List<Post> findPostByEndTimeDesc()
     {
         return postService.findPostByEndTimeDesc();

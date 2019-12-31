@@ -29,7 +29,7 @@ public class Post {
 
     public Post(){this.pPosttime = new Date();}
 
-    public Post(String pTittle, String pContent, String pUid, Date pEndtime, String pKeyword, String pPic,
+    public Post(String pTittle, String pContent, String pUid,  String pKeyword, String pPic,Date pEndtime,
                  Integer pCollectnum, Byte pBan, Byte pPro, Byte pExi)
     {
         this.pTittle = pTittle;

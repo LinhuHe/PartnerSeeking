@@ -9,13 +9,14 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.demo.*;
 
 @RestController
-@RequestMapping("/Advert")
-public class AdvertController {
+@RequestMapping("/Pictur")
+public class PicUpload {
 
     @PostMapping("/upload")  //必须为post
     public Object upload(@RequestParam("file") MultipartFile  file) {  //参数名为file，且不可为空
 
-        String filename = FileUpload.writeUploadFile(file,"Picture");
+        String filename = FileUpload.writeUploadFile(file,"Picture");  //图片存储在本地，并返回hash后的图片名
+
         return filename;
 
     }

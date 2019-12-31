@@ -1,11 +1,13 @@
 package com.example.demo.controller;
 
+import com.example.demo.FileUpload;
 import com.example.demo.entity.Post;
 import com.example.demo.sevice.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.List;
@@ -18,10 +20,11 @@ public class PostController {
     public PostService postService;
 
     @RequestMapping("/addPost")
-    public boolean addPsot(String pTittle, String pContent, String pUid, Date pEndtime, String pKeyword, String pPic,
+    public boolean addPsot(String pTittle, String pContent, String pUid, String pKeyword, MultipartFile Picfile, Date pEndtime,
                             Integer pCollectnum, Byte pBan, Byte pPro, Byte pExi)
     {
-        return postService.addPsot(new Post(pTittle,pContent, pUid,pEndtime, pKeyword,  pPic,
+        String pPic = FileUpload.writeUploadFile(Picfile,"Picture"); // 存入本地 返回hash名
+        return postService.addPsot(new Post(pTittle,pContent, pUid, pKeyword,  pPic,pEndtime,
                                              pCollectnum, pBan, pPro, pExi));
     }
 

@@ -6,7 +6,7 @@
     <result column="P_Tittle" property="pTittle" jdbcType="VARCHAR" />
     <result column="P_KeyWord" property="pKeyword" jdbcType="VARCHAR" />
     <result column="P_Content" property="pContent" jdbcType="VARCHAR" />
-    <result column="P_Num" property="pNum" jdbcType="INTEGER" />
+    <result column="P_Pic" property="pPic" jdbcType="VARCHAR" />
     <result column="P_UID" property="pUid" jdbcType="VARCHAR" />
     <result column="P_PostTime" property="pPosttime" jdbcType="TIMESTAMP" />
     <result column="P_EndTime" property="pEndtime" jdbcType="TIMESTAMP" />
@@ -74,7 +74,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    P_ID, P_Tittle, P_KeyWord, P_Content, P_Num, P_UID, P_PostTime, P_EndTime, P_CollectNum, 
+    P_ID, P_Tittle, P_KeyWord, P_Content, P_Pic, P_UID, P_PostTime, P_EndTime, P_CollectNum,
     P_Ban, P_Pro, P_Exi
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demo.entity.PostExample" >
@@ -111,12 +111,12 @@
     <selectKey resultType="java.lang.Integer" keyProperty="pId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into post (P_Tittle, P_KeyWord, P_Content, 
-      P_Num, P_UID, P_PostTime, 
+    insert into post (P_Tittle, P_KeyWord, P_Content,
+    P_Pic, P_UID, P_PostTime,
       P_EndTime, P_CollectNum, P_Ban, 
       P_Pro, P_Exi)
     values (#{pTittle,jdbcType=VARCHAR}, #{pKeyword,jdbcType=VARCHAR}, #{pContent,jdbcType=VARCHAR}, 
-      #{pNum,jdbcType=INTEGER}, #{pUid,jdbcType=VARCHAR}, #{pPosttime,jdbcType=TIMESTAMP}, 
+      #{pPic,jdbcType=VARCHAR}, #{pUid,jdbcType=VARCHAR}, #{pPosttime,jdbcType=TIMESTAMP},
       #{pEndtime,jdbcType=TIMESTAMP}, #{pCollectnum,jdbcType=INTEGER}, #{pBan,jdbcType=TINYINT}, 
       #{pPro,jdbcType=TINYINT}, #{pExi,jdbcType=TINYINT})
   </insert>
@@ -135,8 +135,8 @@
       <if test="pContent != null" >
         P_Content,
       </if>
-      <if test="pNum != null" >
-        P_Num,
+      <if test="pPic != null" >
+        P_Pic,
       </if>
       <if test="pUid != null" >
         P_UID,
@@ -170,8 +170,8 @@
       <if test="pContent != null" >
         #{pContent,jdbcType=VARCHAR},
       </if>
-      <if test="pNum != null" >
-        #{pNum,jdbcType=INTEGER},
+      <if test="pPic != null" >
+        #{pPic,jdbcType=VARCHAR},
       </if>
       <if test="pUid != null" >
         #{pUid,jdbcType=VARCHAR},
@@ -217,8 +217,8 @@
       <if test="record.pContent != null" >
         P_Content = #{record.pContent,jdbcType=VARCHAR},
       </if>
-      <if test="record.pNum != null" >
-        P_Num = #{record.pNum,jdbcType=INTEGER},
+      <if test="record.pPic != null" >
+        P_Pic = #{record.pPic,jdbcType=VARCHAR},
       </if>
       <if test="record.pUid != null" >
         P_UID = #{record.pUid,jdbcType=VARCHAR},
@@ -252,7 +252,7 @@
       P_Tittle = #{record.pTittle,jdbcType=VARCHAR},
       P_KeyWord = #{record.pKeyword,jdbcType=VARCHAR},
       P_Content = #{record.pContent,jdbcType=VARCHAR},
-      P_Num = #{record.pNum,jdbcType=INTEGER},
+    P_Pic = #{record.pPic,jdbcType=VARCHAR},
       P_UID = #{record.pUid,jdbcType=VARCHAR},
       P_PostTime = #{record.pPosttime,jdbcType=TIMESTAMP},
       P_EndTime = #{record.pEndtime,jdbcType=TIMESTAMP},
@@ -276,8 +276,8 @@
       <if test="pContent != null" >
         P_Content = #{pContent,jdbcType=VARCHAR},
       </if>
-      <if test="pNum != null" >
-        P_Num = #{pNum,jdbcType=INTEGER},
+      <if test="pPic != null" >
+        P_Pic = #{pPic,jdbcType=VARCHAR},
       </if>
       <if test="pUid != null" >
         P_UID = #{pUid,jdbcType=VARCHAR},
@@ -308,7 +308,7 @@
     set P_Tittle = #{pTittle,jdbcType=VARCHAR},
       P_KeyWord = #{pKeyword,jdbcType=VARCHAR},
       P_Content = #{pContent,jdbcType=VARCHAR},
-      P_Num = #{pNum,jdbcType=INTEGER},
+      P_Pic = #{pPic,jdbcType=VARCHAR},
       P_UID = #{pUid,jdbcType=VARCHAR},
       P_PostTime = #{pPosttime,jdbcType=TIMESTAMP},
       P_EndTime = #{pEndtime,jdbcType=TIMESTAMP},

@@ -11,7 +11,7 @@ public class Post {
 
     private String pContent;
 
-    private Integer pNum=0;
+    private String pPic;
 
     private String pUid;
 
@@ -19,17 +19,17 @@ public class Post {
 
     private Date pEndtime;
 
-    private Integer pCollectnum=0;
+    private Integer pCollectnum;
 
-    private Byte pBan=0;
+    private Byte pBan;
 
-    private Byte pPro=0;
+    private Byte pPro;
 
-    private Byte pExi=1;
+    private Byte pExi;
 
     public Post(){this.pPosttime = new Date();}
 
-    public Post(String pTittle, String pContent, String pUid, Date pEndtime, String pKeyword,  Integer pNum,
+    public Post(String pTittle, String pContent, String pUid, Date pEndtime, String pKeyword, String pPic,
                  Integer pCollectnum, Byte pBan, Byte pPro, Byte pExi)
     {
         this.pTittle = pTittle;
@@ -38,7 +38,7 @@ public class Post {
         this.pEndtime = pEndtime;
 
         this.pKeyword = pKeyword;
-        this.pNum = pNum;
+        this.pPic = pPic;
         this.pCollectnum = pCollectnum;
         this.pBan = pBan;
         this.pPro = pPro;
@@ -79,12 +79,12 @@ public class Post {
         this.pContent = pContent;
     }
 
-    public Integer getpNum() {
-        return pNum;
+    public String getpPic() {
+        return pPic;
     }
 
-    public void setpNum(Integer pNum) {
-        this.pNum = pNum;
+    public void setpPic(String pPic) {
+        this.pPic = pPic;
     }
 
     public String getpUid() {

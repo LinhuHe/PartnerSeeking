@@ -18,10 +18,10 @@ public class PostController {
     public PostService postService;
 
     @RequestMapping("/addPost")
-    public boolean addPsot(String pTittle, String pContent, String pUid, Date pEndtime, String pKeyword, Integer pNum,
+    public boolean addPsot(String pTittle, String pContent, String pUid, Date pEndtime, String pKeyword, String pPic,
                             Integer pCollectnum, Byte pBan, Byte pPro, Byte pExi)
     {
-        return postService.addPsot(new Post(pTittle,pContent, pUid,pEndtime, pKeyword,  pNum,
+        return postService.addPsot(new Post(pTittle,pContent, pUid,pEndtime, pKeyword,  pPic,
                                              pCollectnum, pBan, pPro, pExi));
     }
 

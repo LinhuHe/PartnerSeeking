@@ -31,4 +31,9 @@ public class ReplyService {
     {
         return replyMapper.deleteReplyByPid(pid);
     }
+
+    public int getReplyNumByPost(int pid)
+    {
+        return replyMapper.getReplyNumByPost(pid);
+    }
 }

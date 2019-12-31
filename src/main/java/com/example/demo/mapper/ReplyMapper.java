@@ -30,4 +30,6 @@ public interface ReplyMapper {
     int updateByPrimaryKey(Reply record);
 
     public boolean deleteReplyByPid(int pid);
+
+    public int getReplyNumByPost(int pid);
 }

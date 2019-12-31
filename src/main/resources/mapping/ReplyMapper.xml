@@ -181,4 +181,8 @@
     delete from reply where R_PID = #{pid,jdbcType = INTEGER}
   </delete>
 
+  <select id="getReplyNumByPost" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
+    select COUNT(R_PID) from reply where R_PID = #{pid,jdbcType = INTEGER}
+  </select>
+
 </mapper>

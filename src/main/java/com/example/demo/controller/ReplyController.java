@@ -20,4 +20,10 @@ public class ReplyController {
         return replyService.addReply(new Reply(uid,pid));
     }
 
+    @RequestMapping("/getReplyNumByPost")
+    public int getReplyNumByPost(int pid)
+    {
+        return replyService.getReplyNumByPost(pid);
+    }
+
 }

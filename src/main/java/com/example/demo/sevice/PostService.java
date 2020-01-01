@@ -32,6 +32,8 @@ public class PostService {
             return false;
         }
 
+        System.out.println("PostService::addPsot::p-> "+p);
+
         postmapper.insert(p);
         return true;
     }
@@ -66,5 +68,15 @@ public class PostService {
     public int deleteByPid(int pid)
     {
         return postmapper.deleteByPrimaryKey(pid);
+    }
+
+    public List<Post> findPostByKeyword(String keyword)
+    {
+        PostExample pe = new PostExample();
+        PostExample.Criteria criteria = pe.createCriteria();
+
+        criteria.andPKeywordEqualTo(keyword);
+
+        return postmapper.selectByExample(pe);
     }
 }

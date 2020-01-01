@@ -19,13 +19,13 @@ public class Post {
 
     private Date pEndtime;
 
-    private Integer pCollectnum;
+    private Integer pCollectnum = 0;
 
-    private Byte pBan;
+    private Byte pBan = 0;
 
-    private Byte pPro;
+    private Byte pPro = 0;
 
-    private Byte pExi;
+    private Byte pExi = 0;
 
     public Post(){this.pPosttime = new Date();}
 
@@ -39,7 +39,7 @@ public class Post {
 
         this.pKeyword = pKeyword;
         this.pPic = pPic;
-        this.pCollectnum = pCollectnum;
+        //this.pCollectnum = 0;  参加人数
         this.pBan = pBan;
         this.pPro = pPro;
         this.pExi = pExi;
@@ -141,5 +141,19 @@ public class Post {
 
     public void setpExi(Byte pExi) {
         this.pExi = pExi;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "pId=" + pId +
+                ", pTittle='" + pTittle + '\'' +
+                ", pKeyword='" + pKeyword + '\'' +
+                ", pContent='" + pContent + '\'' +
+                ", pPic='" + pPic + '\'' +
+                ", pUid='" + pUid + '\'' +
+                ", pPosttime=" + pPosttime +
+                ", pEndtime=" + pEndtime +
+                '}';
     }
 }

@@ -20,7 +20,7 @@ public class ReplyController {
         return replyService.addReply(new Reply(uid,pid));
     }
 
-    @RequestMapping("/getReplyNumByPost")
+    @RequestMapping("/getReplyNumByPost")  //获取该帖子有多少回复数
     public int getReplyNumByPost(int pid)
     {
         return replyService.getReplyNumByPost(pid);

@@ -6,6 +6,7 @@ import com.example.demo.sevice.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,7 +24,11 @@ public class PostController {
     public boolean addPsot(String pTittle, String pContent, String pUid, String pKeyword, MultipartFile Picfile, Date pEndtime,
                             Integer pCollectnum, Byte pBan, Byte pPro, Byte pExi)
     {
-        String pPic = FileUpload.writeUploadFile(Picfile,"Picture"); // 存入本地 返回hash名
+        String pPic = "null";
+        if(Picfile !=null) {
+           pPic = FileUpload.writeUploadFile(Picfile, "Picture"); // 存入本地 返回hash名
+        }
+
         return postService.addPsot(new Post(pTittle,pContent, pUid, pKeyword,  pPic,pEndtime,
                                              pCollectnum, pBan, pPro, pExi));
     }
@@ -49,9 +54,22 @@ public class PostController {
     {
         return postService.findPostByEndTimeAsc();
     }
-        @RequestMapping("/findPostByEndTimeDesc")
+    @RequestMapping("/findPostByEndTimeDesc")
     public List<Post> findPostByEndTimeDesc()
     {
         return postService.findPostByEndTimeDesc();
+    }
+
+    @RequestMapping("/findPostByKeyword")
+    public List<Post> findPostByKeyword(String keyword)
+    {
+        System.out.println("findPostByKeyword::keyword = "+keyword);
+        return postService.findPostByKeyword(keyword);
+    }
+
+    @RequestMapping("/deletePostByPID")
+    public int deletePostByPID(int pid)
+    {
+        return postService.deleteByPid(pid);
     }
 }

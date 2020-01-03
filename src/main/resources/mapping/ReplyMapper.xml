@@ -185,4 +185,8 @@
     select COUNT(R_PID) from reply where R_PID = #{pid,jdbcType = INTEGER}
   </select>
 
+  <select id="findPidByUid" resultType="Integer" parameterType="java.lang.String">
+    select R_PID from reply where R_UID = #{uid,jdbcType = VARCHAR}
+  </select>
+
 </mapper>

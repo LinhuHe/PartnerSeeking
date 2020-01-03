@@ -17,7 +17,9 @@ public class AppointmentController {
     @Autowired
     private AppointmentService appointmentService;
 
-    /*根据传入的uid,找到所有和这个id有关的已达成的约定*/
+    /*根据传入的uid,找到所有和这个id有关的已达成的约定
+    * 用于“我的通知”
+    * */
     @RequestMapping("/findAllByUID/{id}")
     public List<Appointment> findAllByUID(@PathVariable("id") String uid)
     {

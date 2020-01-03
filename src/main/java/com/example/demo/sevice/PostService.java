@@ -6,6 +6,7 @@ import com.example.demo.mapper.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -13,6 +14,8 @@ public class PostService {
 
     @Autowired
     public PostMapper postmapper;
+    @Autowired
+    public ReplyService replyService;
 
     public boolean addPsot(Post p)
     {
@@ -78,5 +81,21 @@ public class PostService {
         criteria.andPKeywordEqualTo(keyword);
 
         return postmapper.selectByExample(pe);
+    }
+
+    public List<Post> iJoined(String uid)  //“我参与的” ，返回我reply的所有帖子
+    {
+        ArrayList<Integer> al = new ArrayList(replyService.findPidByUid(uid));
+        System.out.println("al->"+al.toString());
+        ArrayList<Post> alpost = new ArrayList<>();
+
+        for(int i=0;i<al.size();i++)
+        {
+            Post t = postmapper.selectByPrimaryKey(al.get(i));
+            alpost.add(t);
+            System.out.println("alpost"+alpost.toString());
+        }
+
+        return alpost;
     }
 }

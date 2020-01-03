@@ -17,6 +17,8 @@ public class ReplyController {
     @RequestMapping("/addReply")
     public boolean addReply(String uid,int pid)  //uid为应邀者的id
     {
+        //判断重复
+        System.out.println("addReply : uid:"+uid+" pid: "+pid);
         return replyService.addReply(new Reply(uid,pid));
     }
 
@@ -25,5 +27,7 @@ public class ReplyController {
     {
         return replyService.getReplyNumByPost(pid);
     }
+
+
 
 }

@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import java.util.List;
+
 public class Reply {
     private Integer rId;
 
@@ -37,4 +39,6 @@ public class Reply {
     public void setrPid(Integer rPid) {
         this.rPid = rPid;
     }
+
+
 }

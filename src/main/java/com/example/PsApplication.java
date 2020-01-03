@@ -2,6 +2,7 @@ package com.example;
 
 import com.example.demo.entity.*;
 import com.example.demo.mapper.*;
+import org.apache.commons.lang.StringUtils;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;

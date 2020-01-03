@@ -32,4 +32,6 @@ public interface ReplyMapper {
     public boolean deleteReplyByPid(int pid);
 
     public int getReplyNumByPost(int pid);
+
+    public List<Integer> findPidByUid(String uid);
 }

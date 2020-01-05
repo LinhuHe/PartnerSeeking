@@ -99,9 +99,16 @@ public class PostController {
         return postService.iJoined(uid);
     }
 
-    @RequestMapping("searchPost")
+    @RequestMapping("/searchPost")
     public List<Post> searchPost(String searchword)
     {
         return postService.searchPost(searchword);
+    }
+
+
+    @RequestMapping("/getPostByPrimerKey")
+    public Post getPostByPrimerKey(int pid)
+    {
+        return postService.getPostByPrimerKey(pid);
     }
 }

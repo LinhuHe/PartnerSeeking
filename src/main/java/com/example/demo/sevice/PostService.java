@@ -111,4 +111,9 @@ public class PostService {
     {
         return postmapper.searchPost(searchword);
     }
+
+    public Post getPostByPrimerKey(int pid)
+    {
+        return postmapper.selectByPrimaryKey(pid);
+    }
 }

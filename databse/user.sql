@@ -1,2 +1,6 @@
-INSERT INTO `user` VALUES ('123', 'fds', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `user` VALUES ('4325', 'fds', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` VALUES ('1', 'fds', 12, NULL, 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqVAgUWGzZ1phtWyB9BMZ27cNOv2V0FDLy09Z5TbpiavVAickybgNCwkuHkJsYNkoicX5CYVfrMjCU6w/132', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` VALUES ('2', 'fdsww', 21, NULL, 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqVAgUWGzZ1phtWyB9BMZ27cNOv2V0FDLy09Z5TbpiavVAickybgNCwkuHkJsYNkoicX5CYVfrMjCU6w/132', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` VALUES ('o9GsR5WLkCFwamVwq-6kfvq-7bc0', '西八', 1, '15848845621155', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqVAgUWGzZ1phtWyB9BMZ27cNOv2V0FDLy09Z5TbpiavVAickybgNCwkuHkJsYNkoicX5CYVfrMjCU6w/132', 0, 0, 0, 0, 0, 0);
+INSERT INTO `user` VALUES ('o9GsR5WLkCFwamVwq-6kfvq-7bc0', '缘茜行', 1, NULL, 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqVAgUWGzZ1phtWyB9BMZ27cNOv2V0FDLy09Z5TbpiavVAickybgNCwkuHkJsYNkoicX5CYVfrMjCU6w/132', 0, 0, 0, 0, 0, 0);
+INSERT INTO `user` VALUES ('h', 'eeefds', 1, 'sdfbd', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqVAgUWGzZ1phtWyB9BMZ27cNOv2V0FDLy09Z5TbpiavVAickybgNCwkuHkJsYNkoicX5CYVfrMjCU6w/132', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` VALUES ('4', 'lkjdhgdfssdadsfd', 1, 'vfjj,l6365', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqVAgUWGzZ1phtWyB9BMZ27cNOv2V0FDLy09Z5TbpiavVAickybgNCwkuHkJsYNkoicX5CYVfrMjCU6w/132', NULL, NULL, NULL, NULL, NULL, NULL);

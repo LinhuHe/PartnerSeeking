@@ -49,4 +49,14 @@ public class Appointment {
     public void setaPid(Integer aPid) {
         this.aPid = aPid;
     }
+
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "aId=" + aId +
+                ", aInviterid='" + aInviterid + '\'' +
+                ", aInvitedid='" + aInvitedid + '\'' +
+                ", aPid=" + aPid +
+                '}';
+    }
 }

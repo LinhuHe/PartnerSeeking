@@ -31,6 +31,16 @@ public class ReplyService {
             System.out.println("addReply:r.* is null");
             return false;
         }
+
+        System.out.println("addReply : r->" + r);
+        int times = replyMapper.countByrUid(r.getrUid(),r.getrPid());
+
+        if(times>0)
+        {
+            System.out.println("重复报名");
+            return false;
+        }
+
         replyMapper.insert(r);
         return true;
     }

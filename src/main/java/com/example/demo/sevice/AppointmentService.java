@@ -109,6 +109,19 @@ public class AppointmentService {
             return false;
         }
 
+        System.out.println("addAppointment : newap ->" + newap);
+
+        AppointmentExample ae = new AppointmentExample();
+        AppointmentExample.Criteria criteria = ae.createCriteria();
+        criteria.andAPidEqualTo(newap.getaPid());
+
+        int times = appointmentMapper.countByExample(ae);
+        if(times>0)
+        {
+            System.out.println("不必重复确认, times:"+times);
+            return false;
+        }
+
         replyService.deleteReplyByPid(newap.getaPid()); //删除帖子相关回复
         postService.setPostUnable(newap.getaPid(),(byte)1); //帖子设为不可见
 

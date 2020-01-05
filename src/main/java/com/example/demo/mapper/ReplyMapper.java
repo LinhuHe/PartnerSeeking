@@ -34,4 +34,6 @@ public interface ReplyMapper {
     public int getReplyNumByPost(int pid);
 
     public List<Integer> findPidByUid(String uid);
+
+    public int countByrUid(String uid , int pid);
 }

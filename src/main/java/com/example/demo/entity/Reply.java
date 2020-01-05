@@ -40,5 +40,12 @@ public class Reply {
         this.rPid = rPid;
     }
 
-
+    @Override
+    public String toString() {
+        return "Reply{" +
+                "rId=" + rId +
+                ", rUid='" + rUid + '\'' +
+                ", rPid=" + rPid +
+                '}';
+    }
 }

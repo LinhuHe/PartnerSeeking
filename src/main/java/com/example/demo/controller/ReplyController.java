@@ -2,10 +2,14 @@ package com.example.demo.controller;
 
 
 import com.example.demo.entity.Reply;
+import com.example.demo.entity.User;
 import com.example.demo.sevice.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/reply")
@@ -26,6 +30,12 @@ public class ReplyController {
     public int getReplyNumByPost(int pid)
     {
         return replyService.getReplyNumByPost(pid);
+    }
+
+    @RequestMapping("/getUserInfoByPid")
+    public List<User> getUserInfoByPid(int pid) //找到某帖子下所有回复的人的信息
+    {
+        return replyService.getUserInfoByPid(pid);
     }
 
 

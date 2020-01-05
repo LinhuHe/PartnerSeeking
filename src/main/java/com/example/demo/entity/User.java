@@ -1,7 +1,7 @@
 package com.example.demo.entity;
 
 public class User {
-    private String uId;
+    private String uId = "0";
 
     private String uNickname;
 
@@ -11,17 +11,26 @@ public class User {
 
     private String uHeadortrait;
 
-    private Integer uProvinceid;
+    private Integer uProvinceid = 0;
 
-    private Integer uCityid;
+    private Integer uCityid =0 ;
 
-    private Byte uIdentity;
+    private Byte uIdentity = 0;
 
-    private Byte uMerrec;
+    private Byte uMerrec = 0;
 
-    private Byte uBan;
+    private Byte uBan = 0;
 
-    private Byte uExi;
+    private Byte uExi = 0;
+
+    public User(){}
+
+    public User(String uId, String uNickname, Byte uSex, String uHeadortrait) {
+        this.uId = uId;
+        this.uNickname = uNickname;
+        this.uSex = uSex;
+        this.uHeadortrait = uHeadortrait;
+    }
 
     public String getuId() {
         return uId;
@@ -109,5 +118,22 @@ public class User {
 
     public void setuExi(Byte uExi) {
         this.uExi = uExi;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "uId='" + uId + '\'' +
+                ", uNickname='" + uNickname + '\'' +
+                ", uSex=" + uSex +
+                ", uWechat='" + uWechat + '\'' +
+                ", uHeadortrait='" + uHeadortrait + '\'' +
+                ", uProvinceid=" + uProvinceid +
+                ", uCityid=" + uCityid +
+                ", uIdentity=" + uIdentity +
+                ", uMerrec=" + uMerrec +
+                ", uBan=" + uBan +
+                ", uExi=" + uExi +
+                '}';
     }
 }

@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.AppointUser;
 import com.example.demo.entity.Appointment;
 import com.example.demo.entity.AppointmentExample;
+import com.example.demo.entity.User;
 import com.example.demo.sevice.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,12 +19,20 @@ public class AppointmentController {
     @Autowired
     private AppointmentService appointmentService;
 
-    /*根据传入的uid,找到所有和这个id有关的已达成的约定
+    /*根据传入的uid,找到所有和这个id有关的已达成的约定（我是发布人和我是应邀人都算） 并且返回相关的user信息和post标题
     * 用于“我的通知”
     * */
-    @RequestMapping("/findAllByUID/{id}")
-    public List<Appointment> findAllByUID(@PathVariable("id") String uid)
+    @RequestMapping("/findAllByUID")
+    public List<AppointUser> findAllByUID(String uid)
     {
+        if(uid==null)
+        {
+            System.out.println("findAllByUID -> uid is null");
+            return null;
+        }
+        else{
+            System.out.println("findAllByUID -> uid:"  + uid);
+        }
         return appointmentService.findAllByUID(uid);
     }
 
@@ -44,6 +54,7 @@ public class AppointmentController {
     {
         return appointmentService.findInvitedByUID(uid);
     }
+
 
 
 }

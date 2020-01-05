@@ -32,4 +32,10 @@ public interface PostMapper {
     List<Post> findPostByPostTimeDesc();
     List<Post> findPostByEndTimeAsc();
     List<Post> findPostByEndTimeDesc();
+
+    public int setPostUnable(int pid,byte stander);
+
+    Post selectByPrimaryKeyNoBan(Integer pId);
+
+    List<Post> searchPost(String searchword);  //
 }

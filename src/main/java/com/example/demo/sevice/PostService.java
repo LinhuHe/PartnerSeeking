@@ -47,6 +47,7 @@ public class PostService {
         PostExample.Criteria criteria = pe.createCriteria();
 
         criteria.andPUidEqualTo(uid);
+        criteria.andPBanEqualTo(Byte.valueOf("0"));
 
         return postmapper.selectByExample(pe);
     }
@@ -79,6 +80,7 @@ public class PostService {
         PostExample.Criteria criteria = pe.createCriteria();
 
         criteria.andPKeywordEqualTo(keyword);
+        criteria.andPBanEqualTo(Byte.valueOf("0"));
 
         return postmapper.selectByExample(pe);
     }
@@ -92,10 +94,21 @@ public class PostService {
         for(int i=0;i<al.size();i++)
         {
             Post t = postmapper.selectByPrimaryKey(al.get(i));
+            if(t!=null)  //如果那个帖子已经被appointment了 则会返回null
             alpost.add(t);
-            System.out.println("alpost"+alpost.toString());
+            //System.out.println("alpost"+alpost.toString());
         }
 
         return alpost;
+    }
+
+    public int setPostUnable(int pid,byte stander) //addappointment 中调用
+    {
+        return postmapper.setPostUnable(pid,stander);
+    }
+
+    public List<Post> searchPost(String searchword)
+    {
+        return postmapper.searchPost(searchword);
     }
 }

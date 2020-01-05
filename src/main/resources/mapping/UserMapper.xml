@@ -100,11 +100,11 @@
     <selectKey resultType="java.lang.String" keyProperty="uId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user (U_NickName, U_Sex, U_WeChat, 
+    insert into user (U_ID, U_NickName, U_Sex, U_WeChat,
       U_Headortrait, U_ProvinceID, U_CityID, 
       U_Identity, U_Merrec, U_Ban, 
       U_Exi)
-    values (#{uNickname,jdbcType=VARCHAR}, #{uSex,jdbcType=TINYINT}, #{uWechat,jdbcType=VARCHAR}, 
+    values (#{uId,jdbcType=VARCHAR}, #{uNickname,jdbcType=VARCHAR}, #{uSex,jdbcType=TINYINT}, #{uWechat,jdbcType=VARCHAR},
       #{uHeadortrait,jdbcType=VARCHAR}, #{uProvinceid,jdbcType=INTEGER}, #{uCityid,jdbcType=INTEGER}, 
       #{uIdentity,jdbcType=TINYINT}, #{uMerrec,jdbcType=TINYINT}, #{uBan,jdbcType=TINYINT}, 
       #{uExi,jdbcType=TINYINT})

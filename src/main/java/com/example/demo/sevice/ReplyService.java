@@ -6,12 +6,18 @@ import com.example.demo.mapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ReplyService {
     @Autowired
     public ReplyMapper replyMapper;
+
+    @Autowired
+    public UserMapper userMapper;
+    @Autowired
+    public UserService userService;
 
     public boolean addReply(Reply r)
     {
@@ -46,5 +52,34 @@ public class ReplyService {
             return null;
         }
         return replyMapper.findPidByUid(uid);
+    }
+
+    public List<User> getUserInfoByPid(int pid) //找到某帖子下所有回复的人的信息
+    {
+        System.out.println("getUserInfoByPid-> pid:"+pid);
+        List<Reply> ral = new ArrayList<>(); //储存某帖子的所有回复
+        List<User> ual = new ArrayList<>(); //储存某帖子下的所有回复人的信息
+
+        ReplyExample re = new ReplyExample();
+        ReplyExample.Criteria criteria = re.createCriteria();
+        criteria.andRPidEqualTo(pid);
+
+        ral = replyMapper.selectByExample(re);
+
+        if(ral.size()<=0) {
+            System.out.println("getUserInfoByPid ral 为空, 没有这个帖子 或 没有回复");
+        }
+
+        for(int i=0;i<ral.size();i++)
+        {
+            try {
+                ual.add(userService.getInfoByUid(ral.get(i).getrUid()).get(0));
+            }
+            catch (Exception e){
+                System.out.println("getUserInfoByPid : "+e);
+        }
+        }
+
+        return ual;
     }
 }

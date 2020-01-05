@@ -3,11 +3,9 @@ package com.example.demo.controller;
 import com.example.demo.FileUpload;
 import com.example.demo.entity.Post;
 import com.example.demo.sevice.PostService;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.text.ParseException;
@@ -22,9 +20,9 @@ public class PostController {
     @Autowired
     public PostService postService;
 
-    @RequestMapping("/addPost")
+    @PostMapping("/addPost")
     public boolean addPsot(String pTittle, String pContent, String pUid, String pKeyword,  String pEndtime,MultipartFile Picfile,
-                            Integer pCollectnum, Byte pBan, Byte pPro, Byte pExi) throws ParseException
+                            Integer pCollectnum, Byte pPro, Byte pExi) throws ParseException
     {
         String pPic = "null";
         if(Picfile !=null) {
@@ -35,12 +33,20 @@ public class PostController {
         Date enddate = simpleDateFormat.parse(pEndtime);
 
         return postService.addPsot(new Post(pTittle,pContent, pUid, pKeyword,  pPic,enddate,
-                                             pCollectnum, pBan, pPro, pExi));
+                                             pCollectnum, pPro, pExi));
     }
 
-    @RequestMapping("/findPostByUID/{uid}")
-    public List<Post> findPostByUID(@PathVariable("uid") String uid)
+    @RequestMapping("/findPostByUID")
+    public List<Post> findPostByUID(String uid)
     {
+        if(uid==null)
+        {
+            System.out.println("findPostByUID -> uid is null");
+            return null;
+        }
+        else{
+            System.out.println("findPostByUID -> uid:"  + uid);
+        }
         return postService.findPostByUID(uid);
     }
 
@@ -79,14 +85,23 @@ public class PostController {
     }
 
     @RequestMapping("/iJoined")
-    public List<Post> iJoined(String uid)  //“我参与的” ，返回我reply的所有帖子
+    public List<Post> iJoined(String uid)  //“我参与的” ，返回uid reply的所有帖子
     {
         if(uid==null)
         {
             System.out.println("iJoined -> uid is null");
             return null;
         }
+        else{
+            System.out.println("iJoined -> uid:"  + uid);
+        }
 
         return postService.iJoined(uid);
+    }
+
+    @RequestMapping("searchPost")
+    public List<Post> searchPost(String searchword)
+    {
+        return postService.searchPost(searchword);
     }
 }

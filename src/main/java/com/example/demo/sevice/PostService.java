@@ -116,4 +116,8 @@ public class PostService {
     {
         return postmapper.selectByPrimaryKey(pid);
     }
+
+    public Post selectByPrimaryKeyNoBan(int pid){
+        return postmapper.selectByPrimaryKeyNoBan(pid);
+    }
 }

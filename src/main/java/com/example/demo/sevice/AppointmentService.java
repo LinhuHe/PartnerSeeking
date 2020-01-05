@@ -66,7 +66,7 @@ public class AppointmentService {
         for(;index<Atemp.size();index++)
         {
             try {
-                Utemp.add(userService.getInfoByUid(Atemp.get(index).getaInvitedid()).get(0)); //根据intervier添加相应userinfo
+                Utemp.add(userService.getInfoByUid(Atemp.get(index).getaInviterid()).get(0)); //根据intervier添加相应userinfo
                 Ptemp.add(postService.postmapper.selectByPrimaryKeyNoBan(Atemp.get(index).getaPid()).getpTittle());
             }
             catch (Exception e)

@@ -111,4 +111,9 @@ public class PostController {
     {
         return postService.getPostByPrimerKey(pid);
     }
+
+    @RequestMapping("/selectByPrimaryKeyNoBan")
+    public Post selectByPrimaryKeyNoBan(int pid){
+        return postService.selectByPrimaryKeyNoBan(pid);
+    }
 }

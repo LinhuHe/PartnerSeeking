@@ -1,0 +1,11 @@
+<view class="tp" bindtap="bindViewTap" wx:for="{{data_list}}" wx:for-index="index">
+  <view class="cv" catchtap="bindViewTap" data-appid="{{index}}">
+    <view class="tp">
+      <image src="{{item.uHeadortrait}}"/>
+    </view>
+    <view class="js">
+      <text class="t1"> 对方微信：{{item.uNickname}} </text>
+      <text class="t2"> 帖子标题：{{item.pTittle}}</text>
+    </view>
+  </view>
+</view>

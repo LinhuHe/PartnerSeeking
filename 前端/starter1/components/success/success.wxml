@@ -1,0 +1,10 @@
+<!--components/success/success.wxml-->
+<view class="cv" >
+ <view class="tp">
+  <image src="/assets/icon/对.png"/>
+ </view>
+ <view class="js">
+  <text class="t1"> 对方微信：这是对方微信 </text>
+  <text class="t2"> 您的帖子已被自动删除</text>
+ </view>
+</view>

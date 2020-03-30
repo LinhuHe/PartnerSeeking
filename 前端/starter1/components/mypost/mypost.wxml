@@ -1,0 +1,14 @@
+<view class="cv" >
+ <view class="tp" bindtap='onTapcover'>
+  <image src="/assets/icon/申请.png"/>
+ </view>
+ <view class="js">
+  <text class="t1"> 帖子标题 </text>
+  <text class="t2"> 申请人：</text>
+  <text class="t3"> 申请时间</text>
+ </view>
+  <view class="acc" bindtap='onTapacc'>
+   <image src="/assets/icon/对.png"/>
+ </view>
+</view>
+

@@ -1,0 +1,28 @@
+<view class="in">
+
+  <view class="in1">
+    <text>{{userinfo.nickName}}</text>
+    <image src="{{userinfo.avatarUrl}}"/>
+  </view>
+
+  <view class="in2" bindtap="onTapMyJoin">
+    <text>我参与的</text>
+    <image src="/assets/icon/hearts.png"/>
+  </view>
+
+  <view class="in2" bindtap="onTapMyPost">
+    <text>我发布的</text>
+    <image src="/assets/icon/clock.png"/>
+  </view>
+
+  <view class="in2" bindtap="onTapNotice">
+    <text>通知中心</text>
+    <image src="/assets/icon/dinner.png"/>
+  </view>
+
+  <view class="in2">
+    <text>退出登录</text>
+    <image src="/assets/icon/smartphone.png"/>
+  </view>
+
+</view>

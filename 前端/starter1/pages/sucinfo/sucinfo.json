@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "sucdemo": "/components/success/success"
+  },
+  "navigationBarTitleText": "成功通知",
+  "backgroundColor": "#F5F5DC",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true
+}

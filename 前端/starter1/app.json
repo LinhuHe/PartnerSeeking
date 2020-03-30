@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/main/main",
+    "pages/info/info",
+    "pages/search/search",
+    "pages/content/content",
+    "pages/launch/launch",
+    "pages/list/list",
+    "pages/applylist/applylist",
+    "pages/sucinfo/sucinfo",
+    "pages/sucdetail/sucdetail"
+  ],
+  "tabBar": {
+    "selectedColor": "#6B8E23",
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "text": "主页",
+        "iconPath": "/assets/icon/火焰.png",
+        "selectedIconPath": "/assets/icon/火焰2.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "/assets/icon/放大镜.png",
+        "selectedIconPath": "/assets/icon/放大镜2.png"
+      },
+      {
+        "pagePath": "pages/info/info",
+        "text": "个人中心",
+        "iconPath": "/assets/icon/人物.png",
+        "selectedIconPath": "/assets/icon/人物2.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#6B8E23",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,48 @@
+<!--pages/main/main.wxml-->
+<view class="iconen">
+<view class="iconcon">
+<view class="mainfont" bindtap='onTapbasket'>
+<image src="/assets/icon/篮球.png" mode="aspectFill"/>
+<text>运动</text>
+</view>
+<view class="mainfont" bindtap='onTapfriend'>
+<image src="/assets/icon/爱心.png" mode="aspectFill"/>
+<text>交友</text>
+</view>
+<view class="mainfont" bindtap='onTappencil'>
+<image src="/assets/icon/学习.png" mode="aspectFill"/>
+<text>自习</text>
+</view>
+</view>
+
+<view class="iconcon1">
+<view class="mainfont" bindtap='onTapfood'>
+<image src="/assets/icon/吃饭.png" mode="aspectFill"/>
+<text>约饭</text>
+</view>
+<view class="mainfont" bindtap='onTapbag'>
+<image src="/assets/icon/背包.png" mode="aspectFill"/>
+<text>旅游</text>
+</view>
+<view class="mainfont" bindtap='onTappc'>
+<image src="/assets/icon/电脑.png" mode="aspectFill"/>
+<text>电竞</text>
+</view>
+</view>
+</view>
+
+<view class="mp">
+<view class="wz"> <image src="/assets/image/theme.png" mode="aspectFill"/></view>
+<view class="tp" bindtap='onTapadd'> 
+<image src="/assets/icon/加号.png" mode="aspectFill"/>
+<text>发布</text>
+</view>
+</view>
+
+<view class="mp1">
+<view class="wz1"> <image src="/assets/image/hot.png" mode="aspectFill"/></view>
+<view class="tp1"  bindtap='onTapdp'> 
+<image src="/assets/icon/创意.png" mode="aspectFill"/>
+<text>查看</text>
+</view>
+</view>

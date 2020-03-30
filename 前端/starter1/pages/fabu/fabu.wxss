@@ -1,0 +1,169 @@
+/* pages/fabu/fabu.wxss */
+page{background-color:#F5F5DC;}
+.cata{
+  margin-top: 25px;
+  height:36px;
+  padding:5px;
+  display: flex;
+}
+.cata-tip{
+  margin-left: 30px;
+  margin-right:30px;
+  width:65px;
+  height:26px;
+  margin-top: 7px;
+}
+.cata-tip text{
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  color: #6B8E23;
+}
+.select{
+ flex:1;
+}
+.picker{
+  background-color: #F5F5DC;
+  border:1px solid #6B8E23;
+  padding:5px;
+  padding-left: 15px;
+  border-radius: 10px;
+  width:41px;
+  height:26px;
+  font-size: 16px;
+  color:#6B8E23;
+}
+
+
+.title{
+  margin-top: 15px;
+  height: 36px;
+  padding:5px;
+  display: flex;
+}
+.title-tip{
+  margin-left:30px;
+  margin-right: 30px;
+  width:65px;
+  height: 26px;
+  margin-top: 7px;
+}
+.title-tip text{
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  color: #6B8E23;
+}
+.input{
+  width:150px;
+  height:36px;
+  border:1px solid #6B8E23;
+  border-radius: 10px;
+}
+
+.place{
+  margin-top: 15px;
+  height: 36px;
+  padding:5px;
+  display: flex;
+}
+.place-tip{
+  margin-left:30px;
+  margin-right: 30px;
+  width:65px;
+  height: 26px;
+  margin-top: 7px;
+}
+.place-tip text{
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  color: #6B8E23;
+}
+.p22{
+  flex:1;
+}
+.input{
+  width:150px;
+  height:36px;
+  border:1px solid #6B8E23;
+  border-radius: 10px;
+}
+
+.time{
+  margin-top: 15px;
+  height: 36px;
+  padding:5px;
+  display: flex;
+}
+.time-tip{
+  margin-left:30px;
+  margin-right: 30px;
+  width:65px;
+  height: 26px;
+  margin-top: 7px;
+}
+.time-tip text{
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  color: #6B8E23;
+}
+#p32{
+  flex:0.8;
+  align-items: center
+}
+.tui-picker-detail text{
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  color: #6B8E23;
+}
+.inputt{
+  width:150px;
+  height:100px;
+  border:1px solid rgb(114, 158, 25);
+  border-radius: 10px;
+}
+
+
+.content{
+  margin-top: 15px;
+  height: 100px;
+  padding:5px;
+  display: flex;
+}
+.content-tip{
+  margin-left:30px;
+  margin-right: 30px;
+  width:65px;
+  height: 26px;
+  margin-top: 7px;
+}
+.content-tip text{
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  color: #6B8E23;
+}
+.p32{
+  flex:1
+}
+#input-content{
+  width:152px;
+  height:100px;
+  border:1px solid #6B8E23;
+  border-radius: 10px;
+}
+
+.image_size{
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.image_size image{
+  width: 50px;
+  height: 50px;
+}

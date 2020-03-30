@@ -1,0 +1,13 @@
+<!--pages/list/list.wxml-->
+<view class="tp" bindtap="bindViewTap" wx:for="{{data_list}}" wx:for-index="index">
+  <view class="cv" catchtap="bindViewTap" data-postid="{{index}}">
+    <view class="tp">
+      <image src="{{serverurl}}userPicture/{{item.pPic}}"/>
+    </view>
+    <view class="js">
+      <text class="t1"> {{item.pTittle}} </text>
+      <text class="t2"> 类别：{{item.pKeyword}} </text>
+      <text class="t3"> 截止时间：{{item.pEndtime}} </text>
+    </view>
+  </view>
+</view>

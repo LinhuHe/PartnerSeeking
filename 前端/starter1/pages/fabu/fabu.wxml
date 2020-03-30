@@ -1,0 +1,63 @@
+<view class="cata">
+  <view class="cata-tip">
+    <text>类别选择</text>
+  </view>
+  <view class="select">
+    <picker name="picker_hx" class="cybm_pic_1" value="{{pic_array[hx_index].id}}" data-selecthx="{{pic_array[hx_index].name}}" range="{{pic_array}}" range-key="{{'name'}}"  bindchange="bindPickerChange_hx"  >
+        <view class="picker" >
+         {{pic_array[hx_index].name}} 
+        </view>
+    </picker>
+  </view>
+</view>
+
+<view class="title">
+   <view class="title-tip">
+     <text>活动标题</text>
+   </view>
+   <view class="p22">
+     <input class="input" bindinput="getinputtitle"/>
+   </view>
+</view>
+
+<view class="place">
+   <view class="place-tip">
+     <text>活动地点</text>
+   </view>
+   <view class="p22">
+     <input class="input" bindinput="getinputplace"/>
+   </view>
+</view>
+
+
+<view class="time">
+  <view class="time-tip"> 
+    <text>截止时间</text>
+  </view>
+  <view class="tui-picker-content" id="p32">
+    <picker mode="date" value="{{date}}" start="2020-1-01" end="2050-1-01" bindchange="changeDate">
+      <view class="tui-picker-detail">
+        <text>{{date}}</text>
+      </view>
+    </picker>
+  </view>
+</view>
+
+
+
+<view class="content">
+   <view class="content-tip">
+     <text>活动介绍</text>
+   </view>
+   <view class="p32">
+     <textarea class="input" id="input-content" bindinput="getinputcontent"/>
+   </view>
+</view>
+
+<view class="image_size" bindtap="chooseImage">
+  <image src="../../assets/image/加号.jpg"  mode="widthFix"></image>
+</view>
+
+<view class="submit">
+<button class="weui-btn" type="primary" bindtap="submitForm">提交</button>
+</view>

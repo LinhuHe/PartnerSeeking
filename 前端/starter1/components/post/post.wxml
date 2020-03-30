@@ -1,0 +1,11 @@
+<!--components/post/post.wxml-->
+<view class="cv" >
+  <view class="tp" bindtap="bindViewTap">
+    <image src="/assets/image/cat.jpg"/>
+  </view>
+  <view class="js">
+    <text class="t1"> 这是标题 </text>
+    <text class="t2"> 这是类别 </text>
+    <text class="t3"> 这是距离 </text>
+  </view>
+</view>

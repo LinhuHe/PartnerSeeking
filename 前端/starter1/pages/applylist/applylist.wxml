@@ -1,0 +1,16 @@
+<!--pages/applylist/applylist.wxml-->
+<view class="tp" wx:for="{{data_list}}" wx:for-index="index">
+  <view class="cv" data-applyid="{{index}}">
+    <view class="tp" bindtap='onTapcover'>
+      <image src="{{item.uHeadortrait}}"/>
+    </view>
+    <view class="js">
+      <text class="t1"> {{title}} </text>
+      <text class="t2"> 申请人：{{item.uNickname}}</text>
+      <text class="t3"> </text>
+    </view>
+    <view class="acc" bindtap='onTapacc' data-applyid="{{index}}">
+      <image src="/assets/icon/对.png"/>
+    </view>
+  </view>
+</view>

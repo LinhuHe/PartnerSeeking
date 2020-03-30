@@ -1,0 +1,64 @@
+<view class="cata">
+  <view class="cata-tip">
+    <text>类别选择</text>
+  </view>
+  <view class="select">
+    <picker name="picker_hx" class="cybm_pic_1" value="{{pic_array[hx_index].id}}" data-selecthx="{{pic_array[hx_index].name}}" range="{{pic_array}}" range-key="{{'name'}}"  bindchange="bindPickerChange_hx"  >
+        <view class="picker" >
+         {{pic_array[hx_index].name}} 
+        </view>
+    </picker>
+  </view>
+</view>
+
+<view class="place">
+   <view class="place-tip">
+     <text>活动地点</text>
+   </view>
+   <view class="p22">
+     <input class="input" bindinput="getinputplace"/>
+   </view>
+</view>
+
+<view class="time">
+  <view class="time-tip"> 
+    <text>截止时间</text>
+  </view>
+  <view class="tui-picker-content" id="p32">
+    <picker mode="date" value="{{date}}" start="2020-1-01" end="2050-1-01" bindchange="changeDate">
+      <view class="tui-picker-detail">
+        <text>{{date}}</text>
+      </view>
+    </picker>
+  </view>
+</view>
+
+
+<view class="question-input-area">
+
+  <!-- 问题标题区域  -->
+  <view class="question-title-wrap">
+    <!-- 标题输入框 -->
+    <input class="question-title" placeholder="请输入标题" maxlength="40" placeholder-style="color:#b3b3b3;font-size:18px;" bindinput="handleTitleInput"></input>
+    <!-- 标题输入字数统计 -->
+    <view class="title-input-counter">{{titleCount}}/40</view>
+  </view>
+
+  <!-- 问题正文区域  -->
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <!-- 多行输入框 -->
+        <textarea class="weui-textarea" placeholder="请输入活动详细内容。" maxlength="500" placeholder-style="color:#b3b3b3;font-size:14px;" style="height: 12rem" bindinput="handleContentInput" />
+        <!-- 正文输入字数统计 -->
+        <view class="weui-textarea-counter">{{contentCount}}/500</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+<view class="submit">
+<button class="weui-btn" type="primary" bindtap="submitForm">上传图片并提交</button>
+</view>

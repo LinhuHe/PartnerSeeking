@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "postdemo":"/components/post/post"
+  },
+  "navigationBarTitleText": "帖子列表",
+  "backgroundColor": "#F5F5DC",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true
+}

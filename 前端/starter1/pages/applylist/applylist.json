@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "appdemo": "/components/mypost/mypost"
+  },
+  "navigationBarTitleText": "申请列表",
+  "backgroundColor": "#F5F5DC",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,30 @@
+<!--pages/sucdetail/sucdetail.wxml-->
+<view class="conen">
+  <view class="titletop">
+    <view class="ttp1"> <text>发起人</text></view>
+    <view class="ttp2"><image src="/assets/image/back.png"/></view>
+  </view>
+  <view class="conbo">
+    <view class="bo1">
+      <view class="bo11"><image src="{{pic_addr}}"/></view>
+      <view class="bo12">
+        <text class="wb11">标题：{{concrete_data.pTittle}}</text>
+        <text class="wb11">类别：{{concrete_data.pKeyword}}</text>
+      </view>
+    </view>
+    <view class="bo2">
+      <view class="wb2">
+        <text class="wb12">简介：</text>
+        <text class="wb12">{{concrete_data.pContent}}</text>
+      </view>
+    </view>
+    <view class="bo3">
+     <text class="timing">截止时间：{{concrete_data.pEndtime}}</text>
+    </view> 
+  </view>
+  <view class="apply" bindtap="ontapapply">
+    <view class="porto">
+      <image src="/assets/icon/报名.png"/>
+    </view> 
+  </view>
+</view>
